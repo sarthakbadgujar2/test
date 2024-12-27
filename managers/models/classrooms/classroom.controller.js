@@ -25,7 +25,6 @@ module.exports.createClassroom = async (req, res) => {
   const classroom = new Classroom({
     name: req.body.name,
     capacity: req.body.capacity,
-    schoolId: req.body.schoolId,
   });
 
   try {
