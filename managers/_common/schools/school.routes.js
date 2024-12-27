@@ -1,26 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const SchoolManager = require('./School.manager');
+const schoolController = require('./school.controller');
 
-// POST request to create a new school
-router.post('/schools', async (req, res) => {
-    try {
-        const newSchool = await SchoolManager.createSchool(req.body);
-        res.status(201).json(newSchool);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+router.get('/schools', schoolController.getSchools);
+router.get('/schools/:id', schoolController.getSchoolById);
+router.post('/schools', schoolController.createSchool);
+router.put('/schools/:id', schoolController.updateSchool);
+router.delete('/schools/:id', schoolController.deleteSchool);
 
-// GET request to fetch all schools
-router.get('/schools', async (req, res) => {
-    try {
-        const schools = await SchoolManager.getAllSchools();
-        res.status(200).json(schools);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Additional routes for getting, updating, and deleting a school...
 module.exports = router;

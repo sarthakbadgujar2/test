@@ -1,24 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const ClassroomManager = require('./Classroom.manager');
+const classroomController = require('./classroom.controller');
 
-// POST request to create a new classroom
-router.post('/classrooms', async (req, res) => {
-    try {
-        const newClassroom = await ClassroomManager.createClassroom(req.body);
-        res.status(201).json(newClassroom);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+router.get('/classrooms', classroomController.getClassrooms);
+router.get('/classrooms/:id', classroomController.getClassroomById);
+router.post('/classrooms', classroomController.createClassroom);
+router.put('/classrooms/:id', classroomController.updateClassroom);
+router.delete('/classrooms/:id', classroomController.deleteClassroom);
 
-// GET request to fetch classrooms by school ID
-router.get('/classrooms/:schoolId', async (req, res) => {
-    try {
-        const classrooms = await ClassroomManager.getClassroomsBySchool(req.params.schoolId);
-        res.status(200).json(classrooms);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
 module.exports = router;
