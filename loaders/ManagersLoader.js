@@ -12,6 +12,10 @@ const systemArch            = require('../static_arch/main.system');
 const TokenManager          = require('../managers/token/Token.manager');
 const SharkFin              = require('../managers/shark_fin/SharkFin.manager');
 const TimeMachine           = require('../managers/time_machine/TimeMachine.manager');
+const Classroom = require('../managers/models/classrooms/classroom.model');
+const School = require('../managers/models/schools/school.model');
+const Student = require('../managers/models/students/student.model');
+
 
 /** 
  * load sharable modules
@@ -37,6 +41,9 @@ module.exports = class ManagersLoader {
             validators: this.validators,
             // mongomodels: this.mongomodels,
             resourceNodes: this.resourceNodes,
+            Classroom,
+            School,
+            Student
         };
         
     }
@@ -70,6 +77,7 @@ module.exports = class ManagersLoader {
         this.managers.mwsExec             = new VirtualStack({ ...{ preStack: [/* '__token', */'__device',] }, ...this.injectable });
         this.managers.userApi             = new ApiHandler({...this.injectable,...{prop:'httpExposed'}});
         this.managers.userServer          = new UserServer({ config: this.config, managers: this.managers });
+        
 
        
         return this.managers;

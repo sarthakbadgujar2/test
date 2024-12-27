@@ -3,6 +3,11 @@ const express           = require('express');
 const cors              = require('cors');
 const app               = express();
 
+// const classRoomController = require('../models/classrooms/classroom.controller')
+const classroomRoutes = require('../models/classrooms/classroom.routes');
+const schoolRoutes = require('../models/schools/school.routes');
+const studentRoutes = require('../models/students/student.routes');
+
 module.exports = class UserServer {
     constructor({config, managers}){
         this.config        = config;
@@ -27,6 +32,12 @@ module.exports = class UserServer {
             res.status(500).send('Something broke!')
         });
 
+        // app.post('/classrooms',classRoomController.createClassroom)
+
+        /** Register routes */
+        app.use('/classrooms', classroomRoutes); // Use classroom routes
+        app.use('/schools', schoolRoutes);       // Use school routes
+        app.use('/students', studentRoutes);     // Use student routes
         
         /** a single middleware to handle all */
         app.all('/api/:moduleName/:fnName', this.userApi.mw);
