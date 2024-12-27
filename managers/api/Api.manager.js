@@ -124,6 +124,7 @@ module.exports = class ApiHandler {
      /** a middle for executing admin apis trough HTTP */
     async mw(req, res, next){
 
+        console.log("ms------")
         let method        = req.method.toLowerCase();
         let moduleName    = req.params.moduleName;
         let context       = req.params.context;

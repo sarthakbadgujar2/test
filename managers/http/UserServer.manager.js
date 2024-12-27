@@ -27,12 +27,13 @@ module.exports = class UserServer {
             res.status(500).send('Something broke!')
         });
 
+        
+        /** a single middleware to handle all */
+        app.all('/api/:moduleName/:fnName', this.userApi.mw);
         app.get('/', (req, res) => {
             res.status(200).send('Something worked!')
         })
         
-        /** a single middleware to handle all */
-        app.all('/api/:moduleName/:fnName', this.userApi.mw);
 
         let server = http.createServer(app);
         server.listen(this.config.dotEnv.USER_PORT, () => {
