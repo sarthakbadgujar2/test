@@ -2,6 +2,7 @@ const http              = require('http');
 const express           = require('express');
 const cors              = require('cors');
 const app               = express();
+const __headersMiddleware = require('../../mws/__headers.mw'); // Adjust the path if necessary
 
 module.exports = class UserServer {
     constructor({config, managers}){
@@ -30,6 +31,13 @@ module.exports = class UserServer {
         app.get('/', (req, res) => {
             res.status(200).send('Something worked!')
         })
+
+        app.use('/api', __headersMiddleware({
+            meta: {},  // Provide any required data
+            config: this.config,
+            managers: this.userApi.managers  // Make sure to pass the necessary objects
+        }));
+
         
         /** a single middleware to handle all */
         app.all('/api/:moduleName/:fnName', this.userApi.mw);
