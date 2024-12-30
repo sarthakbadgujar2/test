@@ -70,7 +70,9 @@ module.exports = class ManagersLoader {
         this.managers.mwsExec             = new VirtualStack({ ...{ preStack: [/* '__token', */'__device',] }, ...this.injectable });
         this.managers.userApi             = new ApiHandler({...this.injectable,...{prop:'httpExposed'}});
         this.managers.userServer          = new UserServer({ config: this.config, managers: this.managers });
-
+        this.managers.userApi.methodMatrix['student'] = this.managers.userApi.methodMatrix['student'] || {};
+        this.managers.userApi.methodMatrix['student']['post'] = this.managers.userApi.methodMatrix['student']['post'] || [];
+        this.managers.userApi.methodMatrix['student']['post'].push('createStudent');
        
         return this.managers;
 

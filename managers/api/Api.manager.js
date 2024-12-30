@@ -1,4 +1,6 @@
 const getParamNames = require('./_common/getParamNames');
+const StudentController = require('../../managers/_common/student/student.controller');
+
 /** 
  * scans all managers for exposed methods 
  * and makes them available through a handler middleware
@@ -103,6 +105,14 @@ module.exports = class ApiHandler {
                 cb({ error: `failed to execute ${fnName}` });
             }
         });
+
+        // Ensure createStudent function is available
+        this.methodMatrix['student'] = this.methodMatrix['student'] || {};
+        this.methodMatrix['student']['post'] = this.methodMatrix['student']['post'] || [];
+        this.methodMatrix['student']['post'].push('createStudent');
+
+        // Initialize the student controller
+        this.studentController = new StudentController();
         
     }
 
@@ -129,6 +139,16 @@ module.exports = class ApiHandler {
         let context       = req.params.context;
         let fnName        = req.params.fnName;
         let moduleMatrix  = this.methodMatrix[moduleName];
+
+        if (moduleName === 'student' && fnName === 'createStudent') {
+            // Handle the createStudent API call
+            let result = await this.studentController.createStudent(req.body);
+            if (result.success) {
+                return res.status(200).json(result);
+            } else {
+                return res.status(400).json(result);
+            }
+        }
 
         /** validate module */
         if(!moduleMatrix) return this.managers.responseDispatcher.dispatch(res, {ok: false, message: `module ${moduleName} not found`});

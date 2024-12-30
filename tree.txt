@@ -1,0 +1,178 @@
+.
+├── README.md
+├── app.js
+├── are-axions.jpeg
+├── cache
+│   ├── cache.dbh.js
+│   └── redis-client.js
+├── config
+│   ├── envs
+│   │   ├── development.js
+│   │   └── production.js
+│   └── index.config.js
+├── connect
+│   └── mongo.js
+├── index.js
+├── libs
+│   └── utils.js
+├── loaders
+│   ├── ManagersLoader.js
+│   ├── MiddlewaresLoader.js
+│   ├── MongoLoader.js
+│   ├── ResourceMeshLoader.js
+│   ├── ValidatorsLoader.js
+│   └── _common
+│       ├── fileLoader.js
+│       └── loader.js
+├── managers
+│   ├── _common
+│   │   ├── classrooms
+│   │   │   ├── classroom.controller.js
+│   │   │   ├── classroom.model.js
+│   │   │   └── classroom.routes.js
+│   │   ├── schema.models.js
+│   │   ├── schema.validators.js
+│   │   ├── schools
+│   │   │   ├── school.controller.js
+│   │   │   ├── school.model.js
+│   │   │   └── school.routes.js
+│   │   ├── students
+│   │   │   ├── student.controller.js
+│   │   │   ├── student.model.js
+│   │   │   └── student.routes.js
+│   │   └── time.helper.js
+│   ├── _managers.md
+│   ├── api
+│   │   ├── Api.manager.js
+│   │   └── _common
+│   │       └── getParamNames.js
+│   ├── content_token
+│   │   └── ContentToken.manager.js
+│   ├── entities
+│   │   ├── token
+│   │   │   └── Token.manager.js
+│   │   └── user
+│   │       ├── User.manager.js
+│   │       └── user.schema.js
+│   ├── http
+│   │   └── UserServer.manager.js
+│   ├── live_db
+│   │   └── LiveDb.manager.js
+│   ├── response_dispatcher
+│   │   └── ResponseDispatcher.manager.js
+│   ├── shark_fin
+│   │   └── SharkFin.manager.js
+│   ├── time_machine
+│   │   └── TimeMachine.manager.js
+│   ├── token
+│   │   └── Token.manager.js
+│   └── virtual_stack
+│       ├── Bolt.manager.js
+│       └── VirtualStack.manager.js
+├── mws
+│   ├── Middleware.manager.js
+│   ├── __device.mw.js
+│   ├── __files.mw.js
+│   ├── __headers.mw.js
+│   ├── __longToken.mw.js
+│   ├── __params.mw.js
+│   ├── __query.mw.js
+│   ├── __shortToken.mw.js
+│   ├── __token.mw.js
+│   └── _middlewares.md
+├── package-lock.json
+├── package.json
+├── public
+│   ├── countries.data.json
+│   └── emojis.data.json
+├── static_arch
+│   ├── lang.seed.js
+│   ├── main.system.js
+│   ├── myTypes.config.js
+│   └── wild.system.js
+└── tree.txt
+
+29 directories, 64 files
+.
+├── README.md
+├── app.js
+├── are-axions.jpeg
+├── cache
+│   ├── cache.dbh.js
+│   └── redis-client.js
+├── config
+│   ├── envs
+│   │   ├── development.js
+│   │   └── production.js
+│   └── index.config.js
+├── connect
+│   └── mongo.js
+├── index.js
+├── libs
+│   └── utils.js
+├── loaders
+│   ├── ManagersLoader.js
+│   ├── MiddlewaresLoader.js
+│   ├── MongoLoader.js
+│   ├── ResourceMeshLoader.js
+│   ├── ValidatorsLoader.js
+│   └── _common
+│       ├── fileLoader.js
+│       └── loader.js
+├── managers
+│   ├── _common
+│   │   ├── schema.models.js
+│   │   ├── schema.validators.js
+│   │   └── time.helper.js
+│   ├── _managers.md
+│   ├── api
+│   │   ├── Api.manager.js
+│   │   └── _common
+│   │       └── getParamNames.js
+│   ├── content_token
+│   │   └── ContentToken.manager.js
+│   ├── entities
+│   │   ├── token
+│   │   │   └── Token.manager.js
+│   │   └── user
+│   │       ├── User.manager.js
+│   │       └── user.schema.js
+│   ├── http
+│   │   └── UserServer.manager.js
+│   ├── live_db
+│   │   └── LiveDb.manager.js
+│   ├── response_dispatcher
+│   │   └── ResponseDispatcher.manager.js
+│   ├── shark_fin
+│   │   └── SharkFin.manager.js
+│   ├── time_machine
+│   │   └── TimeMachine.manager.js
+│   ├── token
+│   │   └── Token.manager.js
+│   └── virtual_stack
+│       ├── Bolt.manager.js
+│       └── VirtualStack.manager.js
+├── mws
+│   ├── Middleware.manager.js
+│   ├── __device.mw.js
+│   ├── __files.mw.js
+│   ├── __headers.mw.js
+│   ├── __longToken.mw.js
+│   ├── __params.mw.js
+│   ├── __query.mw.js
+│   ├── __shortToken.mw.js
+│   ├── __token.mw.js
+│   └── _middlewares.md
+├── package-lock.json
+├── package.json
+├── public
+│   ├── countries.data.json
+│   └── emojis.data.json
+├── static_arch
+│   ├── lang.seed.js
+│   ├── main.system.js
+│   ├── myTypes.config.js
+│   └── wild.system.js
+└── tree.txt
+
+26 directories, 55 files
